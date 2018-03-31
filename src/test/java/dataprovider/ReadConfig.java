@@ -56,5 +56,22 @@ public class ReadConfig
 		return Login_Url;
 	}
 	
+	public String getfbUrl()
+	{
+		String FB_Url=pro.getProperty("FB_URL");
+		return FB_Url;
+	}
+	
+	public String getTwitterUrl()
+	{
+		String Tw_Url=pro.getProperty("Twitter_URL");
+		return Tw_Url;
+	}
+	
+	public String getGmailUrl()
+	{
+		String Gm_Url=pro.getProperty("Gmail_URL");
+		return Gm_Url;
+	}
 
 }

@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="testcases.VerifyLoyaltyProgram">
+      <class name="testcases.VerifyBitly">
         <methods>
-          <include name="Instagramconnecttest"/>
           <include name="setup"/>
+          <include name="emailBitlyexecution"/>
         </methods>
-      </class> <!-- testcases.VerifyLoyaltyProgram -->
+      </class> <!-- testcases.VerifyBitly -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

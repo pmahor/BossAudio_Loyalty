@@ -31,7 +31,7 @@ public class VerifyLoyaltyProgram
 		loyaltprog=PageFactory.initElements(driver, LoyaltyProgram.class);
 	}
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void fbconnecttest()
 	{
 		loyaltprog.fbconnectaction(Dataproviderfactory.getExceldata().getStringData(0,0),Dataproviderfactory.getExceldata().getStringData(0,1));
@@ -47,5 +47,27 @@ public class VerifyLoyaltyProgram
 	public void Instagramconnecttest()
 	{
 		loyaltprog.instconnectaction(Dataproviderfactory.getExceldata().getStringData(0,0),Dataproviderfactory.getExceldata().getStringData(0,2));
+	}*/
+	
+	/*@Test(priority=1)
+	public void Facebooksharetest()
+	{
+		loyaltprog.fbshare(Dataproviderfactory.getExceldata().getStringData(0,0),Dataproviderfactory.getExceldata().getStringData(0,1));
+	}*/
+	
+	/*@Test(priority=1)
+	public void TwitterSharetest()
+	{
+		loyaltprog.Twittershare(Dataproviderfactory.getExceldata().getStringData(0,0),Dataproviderfactory.getExceldata().getStringData(0,3));
 	}
+	*/
+	
+	@Test(priority=1)
+	public void Emailsharing()
+	{
+		loyaltprog.Emailshare(Dataproviderfactory.getExceldata().getStringData(0,0),Dataproviderfactory.getExceldata().getStringData(1,0));
+	}
+	
+	
+	
 }

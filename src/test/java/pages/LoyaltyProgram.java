@@ -3,6 +3,7 @@ package pages;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,11 +16,7 @@ public class LoyaltyProgram
 {
 
 	WebDriver driver;
-	
-	@FindBy(xpath="//input[@id='sa_s26_fb_login_button']") WebElement Fbsharingbtn;
-	@FindBy(xpath="//input[@id='sa-tf-button']") WebElement Twisharingbtn;
-	@FindBy(xpath="//input[@id='sa-s25-email-button']")	WebElement emailsharingbtn;
-	
+		
 	//Fbconnect action
 	@FindBy(xpath="//input[@id='sa_s12_loaded_widget']") WebElement fbconnectbtn;
 	@FindBy(xpath="//input[@id='sa_s12_fblogin_button']") WebElement fbconnectfbloginbtn;
@@ -51,6 +48,8 @@ public class LoyaltyProgram
 	@FindBy(xpath="//a[@id='sa_insta_follow_submit_btn']") WebElement instintersubmitbtn;
 	@FindBy(xpath="//a[@id='sa_s22_instagram_follow_close_btn']") WebElement instinterclosebtn;
 	
+	
+
 	
 	
 	
@@ -197,5 +196,167 @@ public class LoyaltyProgram
 			e.printStackTrace();
 		}
 }
-	
+	// FBShare
+		@FindBy(xpath="//input[@id='sa_s26_fb_login_button']") WebElement Fbsharingbtn;
+		@FindBy(xpath="//input[@id='email']") WebElement fbshareemailaddr;
+		@FindBy(xpath="//input[@id='pass']") WebElement fbsharepasswd;
+		@FindBy(xpath="//input[@id='u_0_0']") WebElement fbshareloginbtn;
+		
+		@FindBy(xpath="//input[@id='sa_fbshare_confirm_email']") WebElement FbshareintermediateEmail;
+		@FindBy(xpath="//input[@id='sa_fbshare_cont_button']") WebElement Fbshareintermediatesubbtn;
+		
+		@FindBy(xpath="//button[@id='u_0_1t']") WebElement posttofb;
+		@FindBy(xpath="//*[@id='sa_s26_close_link']") WebElement fbpopupclosebtn;
+		
+		
+		public void fbshare(String fbemail, String fbpwd)
+		{
+			try 
+			{
+				Thread.sleep(10000);
+				Fbsharingbtn.click();
+				
+				String parentwindow=driver.getWindowHandle();
+				Set<String> winHandles=driver.getWindowHandles();
+				for(String winHandl : winHandles)
+				{
+					driver.switchTo().window(winHandl);
+				}
+				
+				Thread.sleep(5000);
+				
+				fbshareemailaddr.sendKeys(fbemail);
+				fbsharepasswd.sendKeys(fbpwd);
+				fbshareloginbtn.click();
+				
+				System.out.println("Facebook loggedin successful..................");
+				
+				Thread.sleep(5000);
+				driver.switchTo().window(parentwindow);
+				
+				
+				Thread.sleep(5000);
+				System.out.println(" move to Facebook Intermediatepopu..................");
+				FbshareintermediateEmail.clear();
+				FbshareintermediateEmail.sendKeys("sa.testest@gmail.com");
+				Fbshareintermediatesubbtn.click();
+				
+				Thread.sleep(5000);
+				
+				//driver.switchTo().frame("FB_UI_Dialog");
+				WebDriverWait wait = new WebDriverWait(driver,30);
+				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(By.cssSelector(".FB_UI_Dialog")));
+				((JavascriptExecutor)driver).executeScript("arguments[0].click()",driver.findElement(By.name("__CONFIRM__")));
+				Thread.sleep(5000);
+				
+		
+			//	posttofb.submit();
+				
+				Thread.sleep(5000);
+				fbpopupclosebtn.click();
+				
+			} 
+			catch (InterruptedException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		}
+		
+		@FindBy(xpath="//input[@id='sa-tf-button']") WebElement Twisharingbtn;
+		@FindBy(xpath="//input[@id='sa_s19_tweet_btn']") WebElement twshareintermediatebtn;
+		
+		@FindBy(xpath="//input[@id='sa_tw_confirm_name']") WebElement twshareintermediateusername;
+		@FindBy(xpath="//input[@id='sa_tw_confirm_email']") WebElement twshareintermediateEmail;
+		@FindBy(xpath="//input[@id='sa_tw_cont_button']") WebElement twshareintermediatebtn2;
+		
+		@FindBy(xpath="//*[@id='sa_s19_close_link']") WebElement twpopupclosebtn;
+		
+		public void Twittershare(String twemail, String twpwd)
+		{
+			
+		try 
+		{	
+			Thread.sleep(5000);
+			Twisharingbtn.click();
+			Thread.sleep(10000);
+			twshareintermediatebtn.click();
+			Thread.sleep(5000);
+			
+			String parentwindow=driver.getWindowHandle();
+			Set<String> winHandles=driver.getWindowHandles();
+			for(String winHandl : winHandles)
+			{
+				driver.switchTo().window(winHandl);
+			}
+						
+				Thread.sleep(5000);
+				tweetEmail.sendKeys(twemail);
+				tweetpass.sendKeys(twpwd);
+				tweetloginbtn.click();
+				System.out.println("Twitter loggedin successful..................");
+				
+				Thread.sleep(5000);
+				driver.switchTo().window(parentwindow);
+				Thread.sleep(5000);
+				
+				twshareintermediateusername.clear();
+				twshareintermediateusername.sendKeys("sa_johngrey");
+				twshareintermediateEmail.sendKeys("sa.testest@gmail.com");
+				twshareintermediatebtn2.click();
+				Thread.sleep(5000);
+				twpopupclosebtn.click();
+				System.out.println("Twitter sharing successfullycompleted............................");
+				
+			
+			}
+			catch (InterruptedException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		
+		}
+		
+		@FindBy(xpath="//input[@id='sa-s25-email-button']")	WebElement emailsharingbtn;
+		@FindBy(xpath="//input[@id='sa_s25_first_name_share']") WebElement Emailsharingfname;
+		@FindBy(xpath="//input[@id='sa_s25_last_name_share']") WebElement EmailsharingLname;
+		@FindBy(xpath="//input[@id='sa_s25_your_email_share']") WebElement EmailsharingEmail;
+		@FindBy(xpath="//textarea[@id='sa_s25_email_to_share']") WebElement EmailsharingSendtoEmail;
+		@FindBy(xpath="//input[@id='sa_s25_share_button']") WebElement EmailsharingContbtn;
+		@FindBy(xpath="//*[@id='sa_s25_close_icon']") WebElement Emailpopupclosebtn;
+		
+		
+		public void Emailshare(String Uemail, String Semail)
+		{
+			
+		try 
+		{	Thread.sleep(5000);
+			emailsharingbtn.click();	
+			Thread.sleep(5000);
+			Thread.sleep(5000);
+			
+			Emailsharingfname.sendKeys("John");
+			EmailsharingLname.sendKeys("Grey");
+			Thread.sleep(5000);
+			EmailsharingEmail.sendKeys(Uemail);
+			Thread.sleep(5000);
+			EmailsharingSendtoEmail.sendKeys(Semail);
+			EmailsharingContbtn.click();
+						
+			Thread.sleep(5000);
+			Emailpopupclosebtn.click();
+			System.out.println("Email Sharing successful..................");
+						
+			
+		}
+			catch (InterruptedException e) 
+			{
+				
+				e.printStackTrace();
+			}	
+		
+		}
+		
+		
 }

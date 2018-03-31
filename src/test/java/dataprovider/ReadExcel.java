@@ -40,9 +40,7 @@ public class ReadExcel
 	
 	public String getStringData(int row,int column)
 	{
-		
 		String data=wbs1.getRow(row).getCell(column).getStringCellValue();
-		
 		return data;
   
 	}
