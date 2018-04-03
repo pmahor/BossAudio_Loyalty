@@ -1,7 +1,5 @@
 package testcases;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeTest;
@@ -26,7 +24,7 @@ public class VerifyBitly
 	}
 	
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void FacebbokBitlyExecution()
 	{
 		bitlyexec.fbbitly();
@@ -36,9 +34,9 @@ public class VerifyBitly
 	public void TwitterBitlyexecution()
 	{
 		bitlyexec.Twitterbitly();
-	}*/
+	}
 	
-	@Test(priority=1)
+	@Test(priority=3)
 	public void emailBitlyexecution()
 	{
 		bitlyexec.Emailbitly();

@@ -3,12 +3,10 @@ package pages;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import factory.BrowserFactory;
 import factory.Dataproviderfactory;
 import utility.Library;
 

@@ -145,7 +145,8 @@ public class LoyaltyProgram
 			
 			
 		} 
-		catch (InterruptedException e) {
+		catch (InterruptedException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -216,7 +217,7 @@ public class LoyaltyProgram
 				Thread.sleep(10000);
 				Fbsharingbtn.click();
 				
-				String parentwindow=driver.getWindowHandle();
+				/*String parentwindow=driver.getWindowHandle();
 				Set<String> winHandles=driver.getWindowHandles();
 				for(String winHandl : winHandles)
 				{
@@ -228,11 +229,11 @@ public class LoyaltyProgram
 				fbshareemailaddr.sendKeys(fbemail);
 				fbsharepasswd.sendKeys(fbpwd);
 				fbshareloginbtn.click();
-				
+				*/
 				System.out.println("Facebook loggedin successful..................");
 				
 				Thread.sleep(5000);
-				driver.switchTo().window(parentwindow);
+				//driver.switchTo().window(parentwindow);
 				
 				
 				Thread.sleep(5000);
@@ -283,7 +284,7 @@ public class LoyaltyProgram
 			twshareintermediatebtn.click();
 			Thread.sleep(5000);
 			
-			String parentwindow=driver.getWindowHandle();
+			/*String parentwindow=driver.getWindowHandle();
 			Set<String> winHandles=driver.getWindowHandles();
 			for(String winHandl : winHandles)
 			{
@@ -293,11 +294,11 @@ public class LoyaltyProgram
 				Thread.sleep(5000);
 				tweetEmail.sendKeys(twemail);
 				tweetpass.sendKeys(twpwd);
-				tweetloginbtn.click();
+				tweetloginbtn.click();*/
 				System.out.println("Twitter loggedin successful..................");
 				
-				Thread.sleep(5000);
-				driver.switchTo().window(parentwindow);
+				//Thread.sleep(5000);
+				//driver.switchTo().window(parentwindow);
 				Thread.sleep(5000);
 				
 				twshareintermediateusername.clear();

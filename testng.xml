@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Bossaudio-Loy">
+  <test name="Test">
+    <classes>
+      <class name="testcases.VerifyLoyaltyProgram"/>
+      <class name="testcases.VerifyDashboard"/>
+      <class name="testcases.VerifyBitly"/>
+<!--       <class name="com.base.Bossaudio_Loyalty.AppTest"/> -->
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Bossaudio-Loy -->
